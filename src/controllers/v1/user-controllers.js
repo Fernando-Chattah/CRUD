@@ -89,7 +89,7 @@ const deleteuser = async (req, res) => {
 
 const getusers = async (req, res) => {
   try {
-    const users = await User.find().select({password: 0, __v:0, role:0});
+    const users = await User.find().select({ password: 0, __v: 0, role: 0 });
     res.send({ status: 'OK', data: users });
   } catch (e) {
     res.status(500).send({ Status: 'Error', message: e.message })
