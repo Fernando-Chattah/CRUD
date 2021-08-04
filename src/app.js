@@ -1,9 +1,6 @@
 // Dependencias API
 const express = require('express');
 
-//Dependecia para interpretar mensajes JSON
-const bodyParser = require('body-parser');
-
 //Dependencia para el manejo de DB
 const mongoose = require('mongoose');
 
@@ -25,8 +22,8 @@ dotenv.config();
 //Middlware -> Funciones que se ejcutan antes de ir al servidor
 app.use(morgan('dev'));
 //--> parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
 
 //Rutas de la aplicación
 routerV1(app);
